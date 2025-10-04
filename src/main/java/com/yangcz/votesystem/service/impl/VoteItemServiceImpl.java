@@ -18,16 +18,19 @@ public class VoteItemServiceImpl implements VoteItemService {
     @Autowired
     private VoteItemDao voteItemDao;
 
+    //根據Id查詢單筆投票項目
     @Override
     public VoteItem getVoteItemById(Integer itemId) {
         return voteItemDao.getVoteItemById(itemId);
     }
 
+    //查詢所有投票項目
     @Override
     public List<VoteItem> getAllVoteItems() {
         return voteItemDao.getAllVoteItems();
     }
 
+    //新增一筆投票項目
     @Override
     public Integer createVoteItem(VoteItemRequest voteItemRequest) {
         return voteItemDao.createVoteItem(voteItemRequest);

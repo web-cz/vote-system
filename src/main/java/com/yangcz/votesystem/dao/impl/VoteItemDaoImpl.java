@@ -3,6 +3,7 @@ package com.yangcz.votesystem.dao.impl;
 import com.yangcz.votesystem.dao.VoteItemDao;
 import com.yangcz.votesystem.dto.VoteItemRequest;
 import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.rowmapper.ItemTotalRowMapper;
 import com.yangcz.votesystem.rowmapper.VoteItemRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -52,11 +53,11 @@ public class VoteItemDaoImpl implements VoteItemDao {
 
     @Override
     public Integer getTotalForUpdate(Integer itemId) {
-        String sql = "CALL get_vote_item_for_update(:itemId)";
+        String sql = "CALL get_item_total_for_update(:itemId)";
         Map<String, Object> map = new HashMap<>();
         map.put("itemId", itemId);
 
-        List<VoteItem> voteItemList = namedParameterJdbcTemplate.query(sql, map, new VoteItemRowMapper());
+        List<VoteItem> voteItemList = namedParameterJdbcTemplate.query(sql, map, new ItemTotalRowMapper());
 
         if(voteItemList.size() > 0)
             return voteItemList.get(0).getItemTotal();
@@ -97,6 +98,16 @@ public class VoteItemDaoImpl implements VoteItemDao {
         map.put("itemName", voteItemRequest.getItemName());
         Date now = new Date();
         map.put("itemLastModifiedTime", now);
+
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    @Override
+    public void incrementVoteTotal(Integer itemId) {
+        String sql = "CALL increment_vote_total(:itemId)";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("itemId", itemId);
 
         namedParameterJdbcTemplate.update(sql, map);
     }

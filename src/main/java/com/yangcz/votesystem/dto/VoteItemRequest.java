@@ -9,7 +9,6 @@ public class VoteItemRequest {
     @NotBlank
     private String itemName;
 
-
     public String getItemName() {
         return itemName;
     }

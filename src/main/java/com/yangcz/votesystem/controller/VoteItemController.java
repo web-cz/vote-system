@@ -24,7 +24,6 @@ public class VoteItemController {
     @GetMapping("/voteitem/{itemId}")
     public ResponseEntity<VoteItem> getVoteItem(@PathVariable Integer itemId) {
         VoteItem voteItem = voteItemService.getVoteItemById(itemId);
-
         if(voteItem != null)
             return ResponseEntity.status(HttpStatus.OK).body(voteItem);
         else
@@ -42,9 +41,7 @@ public class VoteItemController {
     @PostMapping("/voteitem")
     public ResponseEntity<VoteItem> createVoteItem(@RequestBody @Valid VoteItemRequest voteItemRequest) {
         Integer itemId = voteItemService.createVoteItem(voteItemRequest);
-
         VoteItem voteItem = voteItemService.getVoteItemById(itemId);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(voteItem);
     }
 
@@ -52,11 +49,8 @@ public class VoteItemController {
     @PutMapping("/voteitem/{itemId}")
     public ResponseEntity<VoteItem> updateVoteItem(@PathVariable @NotNull Integer itemId,
                                                    @RequestBody @Valid VoteItemRequest voteItemRequest) {
-
         voteItemService.updateVoteItem(itemId, voteItemRequest);
-
         VoteItem updatedVoteItem = voteItemService.getVoteItemById(itemId);
-
         return ResponseEntity.status(HttpStatus.OK).body(updatedVoteItem);
     }
 

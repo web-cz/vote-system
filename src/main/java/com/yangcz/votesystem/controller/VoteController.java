@@ -1,7 +1,6 @@
 package com.yangcz.votesystem.controller;
 
-import com.yangcz.votesystem.dto.VoteRecordRequest;
-import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.common.dto.VoteRecordRequest;
 import com.yangcz.votesystem.service.VoteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

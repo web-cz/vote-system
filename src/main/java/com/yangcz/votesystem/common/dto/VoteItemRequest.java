@@ -1,4 +1,4 @@
-package com.yangcz.votesystem.dto;
+package com.yangcz.votesystem.common.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,7 +1,7 @@
 package com.yangcz.votesystem.dao;
 
-import com.yangcz.votesystem.dto.VoteItemRequest;
-import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.common.dto.VoteItemRequest;
+import com.yangcz.votesystem.common.model.VoteItem;
 
 import java.util.List;
 

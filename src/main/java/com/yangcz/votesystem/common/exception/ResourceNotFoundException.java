@@ -1,4 +1,4 @@
-package com.yangcz.votesystem.exception;
+package com.yangcz.votesystem.common.exception;
 
 
 import org.springframework.http.HttpStatus;

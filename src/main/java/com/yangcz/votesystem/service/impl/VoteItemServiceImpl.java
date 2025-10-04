@@ -1,10 +1,10 @@
 package com.yangcz.votesystem.service.impl;
 
 import com.yangcz.votesystem.dao.VoteItemDao;
-import com.yangcz.votesystem.dto.VoteItemRequest;
-import com.yangcz.votesystem.exception.ConflictException;
-import com.yangcz.votesystem.exception.ResourceNotFoundException;
-import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.common.dto.VoteItemRequest;
+import com.yangcz.votesystem.common.exception.ConflictException;
+import com.yangcz.votesystem.common.exception.ResourceNotFoundException;
+import com.yangcz.votesystem.common.model.VoteItem;
 import com.yangcz.votesystem.service.VoteItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

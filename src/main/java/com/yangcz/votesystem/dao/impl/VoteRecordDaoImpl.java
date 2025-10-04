@@ -1,8 +1,7 @@
 package com.yangcz.votesystem.dao.impl;
 
 import com.yangcz.votesystem.dao.VoteRecordDao;
-import com.yangcz.votesystem.dto.VoteItemRequest;
-import com.yangcz.votesystem.dto.VoteRecordRequest;
+import com.yangcz.votesystem.common.dto.VoteRecordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;

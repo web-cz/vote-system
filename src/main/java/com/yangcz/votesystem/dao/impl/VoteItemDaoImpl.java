@@ -1,10 +1,10 @@
 package com.yangcz.votesystem.dao.impl;
 
 import com.yangcz.votesystem.dao.VoteItemDao;
-import com.yangcz.votesystem.dto.VoteItemRequest;
-import com.yangcz.votesystem.model.VoteItem;
-import com.yangcz.votesystem.rowmapper.ItemTotalRowMapper;
-import com.yangcz.votesystem.rowmapper.VoteItemRowMapper;
+import com.yangcz.votesystem.common.dto.VoteItemRequest;
+import com.yangcz.votesystem.common.model.VoteItem;
+import com.yangcz.votesystem.common.rowmapper.ItemTotalRowMapper;
+import com.yangcz.votesystem.common.rowmapper.VoteItemRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;

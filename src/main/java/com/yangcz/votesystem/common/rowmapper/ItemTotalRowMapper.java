@@ -1,6 +1,6 @@
-package com.yangcz.votesystem.rowmapper;
+package com.yangcz.votesystem.common.rowmapper;
 
-import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.common.model.VoteItem;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

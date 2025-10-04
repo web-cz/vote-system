@@ -1,7 +1,7 @@
 package com.yangcz.votesystem.controller;
 
-import com.yangcz.votesystem.dto.VoteItemRequest;
-import com.yangcz.votesystem.model.VoteItem;
+import com.yangcz.votesystem.common.dto.VoteItemRequest;
+import com.yangcz.votesystem.common.model.VoteItem;
 import com.yangcz.votesystem.service.VoteItemService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.yangcz.votesystem.model;
+package com.yangcz.votesystem.common.model;
 
 import java.util.Date;
 

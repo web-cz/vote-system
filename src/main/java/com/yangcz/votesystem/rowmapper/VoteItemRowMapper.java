@@ -13,6 +13,7 @@ public class VoteItemRowMapper implements RowMapper<VoteItem> {
         VoteItem voteItem = new VoteItem();
         voteItem.setItemId(rs.getInt("item_id"));
         voteItem.setItemName(rs.getString("item_name"));
+        voteItem.setItemTotal(rs.getInt("item_total"));
         voteItem.setItemCreatedTime(rs.getTimestamp("item_created_time"));
         voteItem.setItemLastModifiedTime(rs.getTimestamp("item_last_modified_time"));
 

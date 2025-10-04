@@ -9,6 +9,7 @@ public interface VoteItemService {
     VoteItem getVoteItemById(Integer itemId);
     List<VoteItem> getAllVoteItems();
     Integer createVoteItem(VoteItemRequest voteItemRequest);
+    void updateVoteItem(Integer itemId, VoteItemRequest voteItemRequest);
 
 
 }

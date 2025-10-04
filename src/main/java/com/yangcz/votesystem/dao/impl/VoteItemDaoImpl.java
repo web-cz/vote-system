@@ -50,6 +50,19 @@ public class VoteItemDaoImpl implements VoteItemDao {
         return namedParameterJdbcTemplate.query(sql, Collections.emptyMap(), new VoteItemRowMapper());
     }
 
+    @Override
+    public Integer getTotalForUpdate(Integer itemId) {
+        String sql = "CALL get_vote_item_for_update(:itemId)";
+        Map<String, Object> map = new HashMap<>();
+        map.put("itemId", itemId);
+
+        List<VoteItem> voteItemList = namedParameterJdbcTemplate.query(sql, map, new VoteItemRowMapper());
+
+        if(voteItemList.size() > 0)
+            return voteItemList.get(0).getItemTotal();
+        else
+            return null;
+    }
 
     @Override
     public Integer createVoteItem(VoteItemRequest voteItemRequest) {
@@ -73,5 +86,18 @@ public class VoteItemDaoImpl implements VoteItemDao {
         Integer itemId = (Integer) result.get("p_item_id");
 
         return itemId;
+    }
+
+    @Override
+    public void updateVoteItem(Integer itemId, VoteItemRequest voteItemRequest) {
+        String sql = "CALL update_vote_item(:itemId, :itemName, :itemLastModifiedTime)";
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("itemId", itemId);
+        map.put("itemName", voteItemRequest.getItemName());
+        Date now = new Date();
+        map.put("itemLastModifiedTime", now);
+
+        namedParameterJdbcTemplate.update(sql, map);
     }
 }

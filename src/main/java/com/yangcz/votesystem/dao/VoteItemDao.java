@@ -10,4 +10,6 @@ public interface VoteItemDao {
     VoteItem getVoteItemById(Integer itemId);
     List<VoteItem> getAllVoteItems();
     Integer createVoteItem(VoteItemRequest voteItemRequest);
+    void updateVoteItem(Integer itemId, VoteItemRequest voteItemRequest);
+    Integer getTotalForUpdate(Integer itemId);
 }

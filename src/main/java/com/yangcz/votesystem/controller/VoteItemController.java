@@ -4,13 +4,16 @@ import com.yangcz.votesystem.dto.VoteItemRequest;
 import com.yangcz.votesystem.model.VoteItem;
 import com.yangcz.votesystem.service.VoteItemService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Validated
 @RestController
 public class VoteItemController {
 
@@ -32,7 +35,7 @@ public class VoteItemController {
     @GetMapping("/voteitem")
     public ResponseEntity<List<VoteItem>> getAllVoteItems() {
         List<VoteItem> voteItemList = voteItemService.getAllVoteItems();
-        return ResponseEntity.ok(voteItemList);
+        return ResponseEntity.status(HttpStatus.OK).body(voteItemList);
     }
 
     //新增一筆投票項目
@@ -43,6 +46,18 @@ public class VoteItemController {
         VoteItem voteItem = voteItemService.getVoteItemById(itemId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(voteItem);
+    }
+
+    //修改一筆投票項目
+    @PutMapping("/voteitem/{itemId}")
+    public ResponseEntity<VoteItem> updateVoteItem(@PathVariable @NotNull Integer itemId,
+                                                   @RequestBody @Valid VoteItemRequest voteItemRequest) {
+
+        voteItemService.updateVoteItem(itemId, voteItemRequest);
+
+        VoteItem updatedVoteItem = voteItemService.getVoteItemById(itemId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(updatedVoteItem);
     }
 
 }
